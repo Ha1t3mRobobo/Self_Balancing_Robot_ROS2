@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:include filename="inertial_macros.xacro" />
+
+    <link name="IMU_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.02 0.02 0.02" />
+            </geometry>
+            <material name="Black"></material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </collision>
+        <xacro:inertial_box mass="0.0001" x="0.01" y="0.01" z="0.01" >
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </xacro:inertial_box>
+    </link>
+    <gazebo reference="IMU_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+
+<!--joint IMU-->
+<joint name="base_IMU_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="IMU_link" />
+    <origin xyz="0.055 0 0.05" rpy="0 0 0" />
+</joint>
+
+<!--plugin of the sensor -->
+
+ <gazebo reference="IMU_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>1</always_on>
+      <update_rate>1000</update_rate>
+      <visualize>true</visualize>
+      <topic>/imu</topic> 
+
+      <!-- nizdo hadi bach y3rf ama link rah tab3 lih capteur-->
+      <gz_frame_id>IMU_link</gz_frame_id>
+      <imu>
+        <angular_velocity>true</angular_velocity>
+        <linear_acceleration>true</linear_acceleration>
+        <orientation>true</orientation>
+      </imu>
+    </sensor>
+  </gazebo>
+
+</robot>

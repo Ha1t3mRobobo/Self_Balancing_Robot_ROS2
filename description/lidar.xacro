@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<link name="lidar_link">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <cylinder radius="0.03" length="0.01" />
+    </geometry>
+    <material name="Blue"/>
+  </visual>
+  <collision>
+     <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.01" />
+      </geometry>
+  </collision>
+  <xacro:inertial_cylinder mass="0.3" radius="0.03" length="0.01" >
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:inertial_cylinder>
+</link>
+<gazebo reference="lidar_link">
+  <material>Gazebo/Yellow</material>
+</gazebo>
+<!--joint lidar-->
+<joint name="base_lidar_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_link" />
+    <origin xyz="0 0 0.12" rpy="0 0 0" />
+</joint>
+<!--engine deja rah world.sdf-->
+    <!--plugin nrml-->
+    <gazebo reference="lidar_link">
+        <material>Gazebo/Pink</material>
+        
+
+        <sensor name="lidar_link" type="gpu_lidar">
+            <pose> 0 0 0.11 0 0 0 </pose>
+            <visualize>true</visualize>
+            <update_rate>30</update_rate>
+            <gz_frame_id>lidar_link</gz_frame_id>
+            <topic>/scan</topic>
+            <lidar>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>
+                        <min_angle>-3.14</min_angle>
+                        <max_angle>3.14</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.2</min>
+                    <max>12</max>
+                </range>
+            </lidar>
+            
+            <always_on>1</always_on>
+            <visualize>1</visualize>
+        </sensor>
+    </gazebo>
+    
+
+</robot>

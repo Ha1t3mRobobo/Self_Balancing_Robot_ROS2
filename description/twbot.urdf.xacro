@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="twbot_demo">
+
+    <xacro:include filename="twbot.xacro" />
+    <xacro:include filename="ros2_control_torque.xacro"/>
+    <xacro:include filename="IMU_sensor.xacro"/>
+    <xacro:include filename="camera.xacro"/>
+    <xacro:include filename="lidar.xacro"/>
+
+</robot>

@@ -1,0 +1,31 @@
+<package format="3">
+<name>twbot_demo</name>
+<version>0.0.0</version>
+<description>ROS 2 Gazebo Harmonic robot demo package</description>
+<maintainer email="h_hechaichi@ensta.edu.dz">HECHAICHI HAITEM-YACINE</maintainer>
+<license>Apache-2.0</license>
+<depend>rclcpp</depend>
+<depend>rclpy</depend>
+<depend>geometry_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>tf2</depend>
+<depend>tf2_ros</depend>
+<depend>ros_gz_bridge</depend>
+<depend>ros_gz_sim</depend>
+<depend>ros_gz_image</depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>ros2_control</exec_depend>
+<exec_depend>ros2_controllers</exec_depend>
+<exec_depend>gz_ros2_control</exec_depend>
+<exec_depend>xacro</exec_depend>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_python</buildtool_depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>pytest</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package>
