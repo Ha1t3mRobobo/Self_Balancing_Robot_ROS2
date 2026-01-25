@@ -82,13 +82,15 @@ def generate_launch_description():
         name='balance',
         output='screen'
     )
-    #node pour control SMC
-    balance_node_SMC = Node(
+    #node pour control par ADRC
+    ADRC_node = Node(
         package='twbot_demo',
-        executable='balancing_SMC.py',  
-        name='balance_SMC',
+        executable='ADRC_control.py',  
+        name='ADRC',
         output='screen'
     )
+
+
     #zid hna t3 LQR ida dertha
 
     return LaunchDescription([
@@ -97,5 +99,5 @@ def generate_launch_description():
         spawn_entity,
         gz_bridge,
         torque_driver_node,
-        balance_node,
+        ADRC_node,
     ])

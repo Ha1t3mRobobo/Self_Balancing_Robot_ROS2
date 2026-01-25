@@ -48,9 +48,9 @@ install(PROGRAMS
   scripts/balancing.py
   DESTINATION lib/${PROJECT_NAME}
 )
-#install --- balancing par SMC
+#install --- balancing par ADRC
 install(PROGRAMS
-  scripts/balancing_SMC.py
+  scripts/ADRC_control.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
