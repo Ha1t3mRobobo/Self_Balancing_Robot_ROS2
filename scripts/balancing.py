@@ -17,14 +17,14 @@ class SelfBalancingController(Node):
         # ==========================================
         self.Kp = -50.0   
         self.Ki = -170.0     
-        self.Kd = -2.5    
+        self.Kd = -2.0    
 
         # ==========================================
         # 2. MOVEMENT
         # ==========================================
         self.k_vel = 0.35          
-        self.k_yaw = 20.0          
-        self.max_tilt = 0.001       
+        self.k_yaw = 10.0          
+        self.max_tilt = 0.01       
 
         # ==========================================
         # 3. BRAKING
@@ -142,11 +142,11 @@ class SelfBalancingController(Node):
         self.pub_dbg_setpoint.publish(msg_float)
 
         # 4. Torque (/100) - Pas d'angle ici, on laisse tel quel
-        msg_float.data = float(-1.0*torque)
+        msg_float.data = float(-1.0*torque/10)
         self.pub_dbg_torque.publish(msg_float)
         
         # 5. Speed (/10) - Pas d'angle ici, on laisse tel quel
-        msg_float.data = math.degrees(-1.0 * self.current_speed/10.0)
+        msg_float.data = math.degrees(-1.0 * self.current_speed/10)
         self.pub_dbg_speed.publish(msg_float)
         # ==========================================
 

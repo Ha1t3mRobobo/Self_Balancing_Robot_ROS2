@@ -52,7 +52,7 @@ class SelfBalancingADRC(Node):
         # ==========================================
         self.k_vel = 0.35          
         self.k_yaw = 20.0          
-        self.max_tilt = 0.001       
+        self.max_tilt = 0.01       
         self.k_brake = 0.25        
         self.min_speed_to_brake = 0.2 
 
@@ -101,7 +101,7 @@ class SelfBalancingADRC(Node):
         if msg.linear.x != 0.0:
             self.is_commanding = True
             target = self.k_vel * msg.linear.x
-            self.setpoint = max(min(target, 5.5*self.max_tilt), -5.5*self.max_tilt)
+            self.setpoint = max(min(target, 34.9*self.max_tilt), -34.9*self.max_tilt)
         else:
             self.is_commanding = False
 

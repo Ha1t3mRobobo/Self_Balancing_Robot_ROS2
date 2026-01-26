@@ -85,7 +85,7 @@
 <gazebo reference="RightWheel_link">
   <material>Gazebo/Green</material>
   <mu1>1.0</mu1>
-  <mu2>1.0</mu2>
+  <mu2>1.0</mu2> 
 </gazebo>
 
 <!--Right_Wheel_joint-->
